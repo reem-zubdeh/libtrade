@@ -3,31 +3,23 @@
 include("connection.php");
 
 $results = array(
-	"complete" => true,
-	"unique" => true,
 	"valid" => true,
-	"success" => true
+	"success" => true,
+	"login" => true
 );
 
-if(isset($_POST["email"]) && $_POST["email"] != ""){
-	$email = $_POST["email"];
+$changed = array(
+	"first-name" => false,
+	"last-name" => false,
+	"phone-no" => false,
+	"location" => false,
+	"image" => false
+);
 
-	$query = "SELECT * from users WHERE email = ?";
-	$stmt = $connection->prepare($query);
-	$stmt->bind_param("s", $email);
-	$stmt->execute();
-	$uniqueres = $stmt->get_result();
-	$row = $uniqueres->fetch_assoc();
-	if(!empty($row)) {
-		$results["unique"] = false;
-		$json = json_encode($results);
-		header('Content-Type: application/json');
-		print $json;
-		exit();
-	}
-
+if(isset($_POST["user_id"]) && $_POST["user_id"] != ""){
+	$user_id = $_POST["user_id"];
 }else{
-	$results["complete"] = false;
+	$results["login"] = false;
 	$json = json_encode($results);
 	header('Content-Type: application/json');
 	print $json;
@@ -36,52 +28,22 @@ if(isset($_POST["email"]) && $_POST["email"] != ""){
 
 if(isset($_POST["first-name"]) && $_POST["first-name"] != ""){
 	$first_name = $_POST["first-name"];
-}else{
-	$results["complete"] = false;
-	$json = json_encode($results);
-	header('Content-Type: application/json');
-	print $json;
-	exit();
+    $changed["first-name"] = true;
 }
 
 if(isset($_POST["last-name"]) && $_POST["last-name"] != ""){
 	$last_name = $_POST["last-name"];
-}else{
-	$results["complete"] = false;
-	$json = json_encode($results);
-	header('Content-Type: application/json');
-	print $json;
-	exit();
-}
-
-if(isset($_POST["password"]) && $_POST["password"] != ""){
-	$password = hash("sha256", $_POST["password"]);
-}else{
-	$results["complete"] = false;
-	$json = json_encode($results);
-	header('Content-Type: application/json');
-	print $json;
-	exit();
+    $changed["last-name"] = true;
 }
 
 if(isset($_POST["phone-no"]) && $_POST["phone-no"] != ""){
 	$phone_no = $_POST["phone-no"];
-}else{
-	$results["complete"] = false;
-	$json = json_encode($results);
-	header('Content-Type: application/json');
-	print $json;
-	exit();
+    $changed["phone-no"] = true;
 }
 
 if(isset($_POST["location"]) && $_POST["location"] != ""){
 	$location = $_POST["location"];
-}else{
-	$results["complete"] = false;
-	$json = json_encode($results);
-	header('Content-Type: application/json');
-	print $json;
-	exit();
+    $changed["location"] = true;
 }
 
 if (array_key_exists("image", $_FILES) && isset($_FILES["image"]) && $_FILES["image"]["error"] != UPLOAD_ERR_NO_FILE) {
@@ -113,13 +75,28 @@ if (array_key_exists("image", $_FILES) && isset($_FILES["image"]) && $_FILES["im
 		exit();
 	}
 
-} else {
-	$image_filename = "default-user-image.png";
+    $changed["image"] = true;
+
 }
 
-$query = "INSERT INTO users (email, password, first_name, last_name, phone_no, location, image_filename) VALUES (?,?,?,?,?,?,?)";
+$query = "SELECT * FROM users WHERE user_id = ?";
 $stmt = $connection->prepare($query);
-$stmt->bind_param("sssssss", $email, $password, $first_name, $last_name, $phone_no, $location, $image_filename);
+$stmt->bind_param("d", $user_id);
+$stmt->execute();
+$res = $stmt->get_result();
+$row = $res->fetch_assoc();
+$stmt->close();
+
+if (!$changed["first-name"]) $first_name = $row["first_name"];
+if (!$changed["last-name"]) $last_name = $row["last_name"];
+if (!$changed["phone-no"]) $phone_no = $row["phone_no"];
+if (!$changed["location"]) $location = $row["location"];
+if (!$changed["image"]) $image_filename = $row["image_filename"];
+
+
+$query = "UPDATE users SET first_name = ?, last_name = ?, phone_no = ?, location = ?, image_filename = ? WHERE user_id = ?";
+$stmt = $connection->prepare($query);
+$stmt->bind_param("sssssd", $first_name, $last_name, $phone_no, $location, $image_filename, $user_id);
 
 if (!$stmt->execute()) {
 	$results["success"] = false;

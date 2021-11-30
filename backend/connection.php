@@ -2,7 +2,7 @@
 
 $server = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "libtradedb";
 
 $connection = new mysqli($server, $username, $password, $dbname);
