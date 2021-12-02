@@ -1,0 +1,7 @@
+{
+  "name": "libtrade",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
