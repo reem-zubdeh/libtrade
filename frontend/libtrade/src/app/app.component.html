@@ -1,6 +1,6 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 
-  <app-tabs></app-tabs>
+  <app-tabs *ngIf="loggedIn"></app-tabs>
 
 </ion-app>

@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+//check localStorage
+let loggedIn = false;
+let mainPage = loggedIn ? 'books' : 'signup';
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'books',
+    redirectTo: mainPage,
     pathMatch: 'full'
   },
   {
@@ -22,6 +26,10 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
 ];
 
