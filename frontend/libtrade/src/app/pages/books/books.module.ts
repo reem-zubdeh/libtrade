@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { BooksPageRoutingModule } from './books-routing.module';
 
 import { BooksPage } from './books.page';
-
+import { BookComponent } from 'src/app/components/book/book.component';
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { BooksPage } from './books.page';
     IonicModule,
     BooksPageRoutingModule
   ],
-  declarations: [BooksPage]
+  declarations: [BooksPage, BookComponent]
 })
 export class BooksPageModule {}

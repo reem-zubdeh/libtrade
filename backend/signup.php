@@ -114,7 +114,7 @@ if (array_key_exists("image", $_FILES) && isset($_FILES["image"]) && $_FILES["im
 	}
 
 } else {
-	$image_filename = "default-user-image.png";
+	$image_filename = "default.png";
 }
 
 $query = "INSERT INTO users (email, password, first_name, last_name, phone_no, location, image_filename) VALUES (?,?,?,?,?,?,?)";

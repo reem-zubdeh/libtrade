@@ -36,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'bookview',
-    loadChildren: () => import('./bookview/bookview.module').then( m => m.BookviewPageModule)
+    loadChildren: () => import('./pages/bookview/bookview.module').then( m => m.BookviewPageModule)
   },
 ];
 
