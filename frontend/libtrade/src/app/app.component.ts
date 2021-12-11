@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
-  //check localStorage
-  loggedIn:boolean = false;
   constructor() {}
+  
+  loggedIn() {
+    // return await this.storage.get('loggedIn');
+    return localStorage.getItem('loggedIn') == 'true';
+  }
 
   ngOnInit() {
-
   }
 
 }

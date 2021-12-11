@@ -4,8 +4,8 @@ include("connection.php");
 
 $json = json_encode(false);
 
-if(isset($_POST["user_id"]) && $_POST["user_id"] != ""){
-	$id = $_POST["user_id"];
+if(isset($_POST["email"]) && $_POST["email"] != ""){
+	$id = $_POST["email"];
 }else{
 	header('Content-Type: application/json');
 	print $json;

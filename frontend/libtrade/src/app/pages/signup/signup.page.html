@@ -38,14 +38,14 @@
             <ion-input name="location" placeholder="Beirut"></ion-input>
           </ion-item>
           <ion-item lines="none">
-              <ion-label position="floating">Upload a photo of you, if you'd like <ion-icon name="image-outline" class="ion-margin-end"></ion-icon></ion-label>
+              <ion-label position="floating">Upload a photo (optional) <ion-icon name="image-outline"></ion-icon></ion-label>
             <input name="image" type="file" accept="image/*">
           </ion-item>
           <ion-item>
             <a href="/login" class="ion-text-center">I already have an account</a>
           </ion-item>
           <a href="/login" id="signup" style="display: none;"></a>
-          <ion-button expand="block" id="dssss" (click)="signup($event)">Submit</ion-button>
+          <ion-button expand="block" (click)="signup($event)">Submit</ion-button>
         </form>
 
       </ion-card-content>

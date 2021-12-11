@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-//check localStorage
-let loggedIn = false;
+let loggedIn = localStorage.getItem('loggedIn');
 let mainPage = loggedIn ? 'books' : 'login';
 
 const routes: Routes = [
