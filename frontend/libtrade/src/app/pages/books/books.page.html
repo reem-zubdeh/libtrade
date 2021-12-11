@@ -7,9 +7,9 @@
 <ion-content>
 
   <ion-grid>
-    <ion-row>
+    <ion-row $ngFor="let book of books">
       <ion-col size="6">
-        <app-book img="cat3.jpg"></app-book>
+        <app-book [img]="book.image_filename"></app-book>
       </ion-col>
       <ion-col size="6">
         <app-book img="cat1.jpg"></app-book>
@@ -17,7 +17,6 @@
       <ion-col size="6">
         <app-book></app-book>
       </ion-col>
-      <ion-col size="6"> ion-col </ion-col>
     </ion-row>
   </ion-grid>
   
