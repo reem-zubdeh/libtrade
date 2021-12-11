@@ -1,5 +1,5 @@
-<ion-card>
+<ion-card [id]="id" (click)="loadbook(id, url, title, author, available, reading)">
   <img [src]="url">
-  <h1>Hello hi sdfhksjd sdfhos  sf sd</h1>
-  <h3>Tefsdgsdhdfds jdfsh sdof s sadt</h3>
+  <h1>{{title}}</h1>
+  <h3>{{author}}</h3>
 </ion-card>
