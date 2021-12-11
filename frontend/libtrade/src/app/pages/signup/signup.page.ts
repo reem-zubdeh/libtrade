@@ -12,4 +12,9 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
 
+  signup(event: Event) {
+    document.getElementById("signup").click();
+  }
+
 }
+

@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 //check localStorage
 let loggedIn = false;
-let mainPage = loggedIn ? 'books' : 'signup';
+let mainPage = loggedIn ? 'books' : 'login';
 
 const routes: Routes = [
   {
@@ -30,6 +30,14 @@ const routes: Routes = [
   {
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'bookview',
+    loadChildren: () => import('./bookview/bookview.module').then( m => m.BookviewPageModule)
   },
 ];
 
