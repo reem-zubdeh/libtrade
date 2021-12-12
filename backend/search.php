@@ -1,5 +1,7 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+
 include("connection.php");
 
 if(isset($_GET["q"]) && $_GET["q"] != ""){

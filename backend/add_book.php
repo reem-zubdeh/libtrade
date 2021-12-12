@@ -1,5 +1,7 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+
 include("connection.php");
 
 $results = array(
@@ -135,7 +137,6 @@ $stmt = $connection->prepare($query);
 $stmt->bind_param("dd", $book_id, $user_id);
 
 if (!$stmt->execute()) {
-	echo $stmt->error;
 	$results["success"] = false;
 	$json = json_encode($results);
 	header('Content-Type: application/json');

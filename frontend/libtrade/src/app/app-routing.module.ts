@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-let loggedIn = localStorage.getItem('loggedIn') == "true";
+let loggedIn = localStorage.getItem('id') != "0";
 let mainPage = loggedIn ? 'tabs/tabs/books' : 'login';
 
 const routes: Routes = [

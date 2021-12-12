@@ -10,7 +10,7 @@
       </ion-card-header>    
       <ion-card-content>
         
-        <form>
+        <form #f="ngForm" enctype="multipart/form-data" (ngSubmit)="login(f)">
           <ion-item *ngIf="error">
             <ion-text color="danger"><h2>Your email or password is incorrect. Please try again.</h2></ion-text>
           </ion-item>

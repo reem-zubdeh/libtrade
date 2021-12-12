@@ -10,12 +10,12 @@ export class AppComponent implements OnInit{
   constructor() {}
   
   loggedIn() {
-    return localStorage.getItem('loggedIn') == 'true';
+    return localStorage.getItem('id') != '0';
   }
 
   ngOnInit() {
-    localStorage.setItem('domain', 'localhost');
-    localStorage.setItem('loggedIn', 'false');
+    localStorage.setItem('domain', 'http://localhost');
+    localStorage.setItem('id', '0');
   }
 
 }

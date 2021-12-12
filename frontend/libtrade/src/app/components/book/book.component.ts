@@ -16,7 +16,7 @@ export class BookComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.url = "http://" + localStorage.getItem('domain') + "/book_images/" + this.img;
+    this.url = localStorage.getItem('domain') + "/book_images/" + this.img;
   }
 
 }

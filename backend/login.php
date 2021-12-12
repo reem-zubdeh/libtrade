@@ -1,5 +1,7 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+
 include("connection.php");
 
 $json = json_encode(false);

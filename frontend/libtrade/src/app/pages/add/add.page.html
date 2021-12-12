@@ -12,18 +12,25 @@
   <div class="flexcol">
     <form #f="ngForm" enctype="multipart/form-data" (ngSubmit)="add(f)">
       <ion-item>
+        <ion-text color="danger" *ngIf="error && !results?.complete">Please fill in all the fields</ion-text>
+        <ion-text color="danger" *ngIf="error && !results?.unique">You already have this book</ion-text>
+        <ion-text color="danger" *ngIf="error && !results?.valid">Invalid input</ion-text>
+        <ion-text color="danger" *ngIf="error && !results?.success">An unknown error has occurred</ion-text>
+        <ion-text color="danger" *ngIf="error && !results?.login">You are not logged in</ion-text>
+      </ion-item>
+      <ion-item>
         <ion-label position="floating">Title</ion-label>
-        <ion-input ngModel name="email" placeholder="john.smith@example.com" type="email"></ion-input>
+        <ion-input ngModel (click)="removeError()" name="title" placeholder="The Lord of the Rings" type="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Author</ion-label>
-        <ion-input ngModel name="first-name" placeholder="John" required></ion-input>
+        <ion-input ngModel (click)="removeError()" name="author" placeholder="J. R. R. Tolkien" required></ion-input>
       </ion-item>
       <ion-item lines="none" class="ion-margin-bottom" >
           <ion-label position="floating">Upload book cover <ion-icon name="image-outline"></ion-icon></ion-label>
-        <input ngModel name="image" type="file" accept="image/*" (change)="getFiles($event)">
+        <input ngModel (click)="removeError()" name="image" type="file" accept="image/*" (change)="parseFile($event)">
       </ion-item>
-      <ion-button type="submit" class="ion-margin-top" (click)="add()">Submit</ion-button>
+      <ion-button type="submit" class="ion-margin-top">Submit</ion-button>
     </form>
   </div>
 
