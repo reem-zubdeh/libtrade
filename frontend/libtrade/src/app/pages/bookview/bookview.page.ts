@@ -8,16 +8,22 @@ import { Router } from '@angular/router';
 })
 export class BookviewPage implements OnInit {
 
-  id:number = 0;
-  img:string = "test2_auth.png";
+  id:number;
   url:string;
-  title:string = "N/A";
-  author:string = "N/A";
-  available:boolean = false;
-  reading:boolean = false;
+  title:string;
+  author:string;
+  available:boolean;
+  reading:boolean;
 
   constructor(private router: Router) {
-    console.log(this.router.getCurrentNavigation().extras.state); 
+    let book = this.router.getCurrentNavigation().extras.state; 
+    this.id = book.id;
+    this.url = book.url;
+    this.title = book.title;
+    this.author = book.author;
+    this.available = book.available;
+    this.reading = book.reading;
+    console.log(book)
   }
 
   ngOnInit() {
