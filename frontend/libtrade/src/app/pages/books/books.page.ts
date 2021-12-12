@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-books',
@@ -8,37 +9,25 @@ import { Router } from '@angular/router';
 })
 export class BooksPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private httpService: HttpService) { }
 
-  books = [
-  {
-    title: "aaa",
-    author: "zzz",
-    image_filename: "cat1.jpg"
-  },
-  {
-    title: "bbb",
-    author: "yyy",
-    image_filename: "cat2.jpg"
-  },
-  {
-    title: "ccc",
-    author: "xxx",
-    image_filename: "cat3.jpg"
-  },
-  {
-    title: "ddd",
-    author: "www",
-    image_filename: "default.jpg"
-  }
-
-  ];
+  books = JSON.parse(localStorage.getItem("books")).books;
   
   add() {
     this.router.navigate(["tabs/tabs/books/add"]);
   }
 
   ngOnInit() {
+    this.httpService.getBooks().subscribe(
+      response => {
+        localStorage.setItem("books", JSON.stringify(response));
+        this.books = JSON.parse(localStorage.getItem("books")).books;
+      }
+    );
+  }
+
+  ionViewDidLoad() {
+    console.log("I'm alive!");
   }
 
 }

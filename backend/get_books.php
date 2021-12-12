@@ -29,6 +29,7 @@ while($r = $res->fetch_assoc()) {
 
 $stmt->close();
 $json = json_encode($rows, JSON_NUMERIC_CHECK);
+$json = "{\"books\": " . $json . "}";
 header('Content-Type: application/json');
 print $json;
 exit();

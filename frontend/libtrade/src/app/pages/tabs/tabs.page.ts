@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-tabs',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
+  }
+
+  getBooks() {
+    this.httpService.getBooks().subscribe(
+      response => {
+        localStorage.setItem("books", JSON.stringify(response));
+      }
+    );
   }
 
 }

@@ -10,18 +10,18 @@
       </ion-card-header>    
       <ion-card-content>
         
-        <form>
+        <form #f="ngForm" enctype="multipart/form-data" (ngSubmit)="add(f)">
           <ion-item>
             <ion-label position="floating">Email address</ion-label>
             <ion-input name="email" placeholder="john.smith@example.com" type="email"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">First name</ion-label>
-            <ion-input name="first-name" placeholder="John"></ion-input>
+            <ion-input name="first" placeholder="John"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Last name</ion-label>
-            <ion-input name="last-name" placeholder="Smith"></ion-input>
+            <ion-input name="last" placeholder="Smith"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Create a secure password</ion-label>
@@ -29,7 +29,7 @@
           </ion-item>
           <ion-item>
             <ion-label position="floating" >Phone number</ion-label>
-            <ion-input name="phone-no" placeholder="96112345678" type="number">
+            <ion-input name="phone" placeholder="96112345678" type="number">
               <ion-icon name="add" class="ion-float-left ion-margin-end"></ion-icon>
             </ion-input>
           </ion-item>

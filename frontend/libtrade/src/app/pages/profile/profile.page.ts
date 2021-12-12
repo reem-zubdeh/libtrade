@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  img:string = "test2_auth.png";
+  img:string = "default.jpg";
   url:string;
   first:string = "N/A";
   last:string = "N/A";
@@ -19,7 +19,7 @@ export class ProfilePage implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-    this.url = "http://" + localStorage.getItem('domain') + "/book_images/" + this.img;
+    this.url = localStorage.getItem('domain') + "/profile_images/" + this.img;
   }
 
   logout() {

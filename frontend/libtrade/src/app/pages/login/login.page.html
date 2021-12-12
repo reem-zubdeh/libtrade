@@ -16,17 +16,17 @@
           </ion-item>
           <ion-item>
             <ion-label position="floating">Email address</ion-label>
-            <ion-input (click)="removeError()" name="email" placeholder="john.smith@example.com" type="email"></ion-input>
+            <ion-input ngModel (click)="removeError()" name="email" placeholder="john.smith@example.com" type="email"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Password</ion-label>
-            <ion-input (click)="removeError()" name="password" placeholder="Don't share this with anyone!" type="password"></ion-input>
+            <ion-input ngModel (click)="removeError()" name="password" placeholder="Don't share this with anyone!" type="password"></ion-input>
           </ion-item>
           <ion-item>
             <a href="/signup" class="ion-text-center">Create an account</a>
           </ion-item>
           <a href="/books" id="login" style="display: none;"></a>
-          <ion-button expand="block" (click)="login()">Log in</ion-button>
+          <ion-button expand="block" type="submit">Log in</ion-button>
         </form>
 
       </ion-card-content>
