@@ -25,8 +25,15 @@ export class HttpService {
   }
 
   getBooks() {
-    console.log("hello");
     return this.http.get(this.base_url + "/get_books.php?user_id=" + localStorage.getItem("id"));
+  }
+
+  findBooks(q) {
+    return this.http.get(this.base_url + "/get_books.php?q=" + q);
+  }
+
+  getProfile() {
+    return this.http.get(this.base_url + "/view_profile.php?user_id=" + localStorage.getItem("id"));
   }
 
 }

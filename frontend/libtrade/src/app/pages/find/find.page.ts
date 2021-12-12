@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-find',
@@ -7,31 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindPage implements OnInit {
 
-  constructor() { }
+  constructor( private httpService: HttpService) { }
 
-  books = [
-    {
-      title: "aaa",
-      author: "zzz",
-      image_filename: "cat1.jpg",
-      owned: 6
-    },
-    {
-      title: "bbb",
-      author: "yyy",
-      image_filename: "cat2.jpg",
-      owned: 1
-    },
-    {
-      title: "ccc",
-      author: "xxx",
-      image_filename: "cat3.jpg",
-      owned: 3
-    }
-  
-    ];
+  books;
     
   ngOnInit() {
+  }
+
+  search(event) {
+    let q = event.detail.value;
+    this.httpService.findBooks(q).subscribe(
+      response => {
+        this.books = response;
+      }
+    );
   }
 
 }
