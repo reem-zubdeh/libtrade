@@ -11,7 +11,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let book of books" size="6">
-        <app-book [id]="book.book_id" [img]="book.image_filename" [title]="book.title" [author]="book.author"></app-book>
+        <app-book [img]="book.image_filename" [title]="book.title" [author]="book.author" [owned]="book.owned"></app-book>
       </ion-col>
     </ion-row>
   </ion-grid>

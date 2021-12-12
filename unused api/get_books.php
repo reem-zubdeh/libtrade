@@ -2,8 +2,9 @@
 
 include("connection.php");
 
-if(isset($_GET["q"]) && $_GET["q"] != ""){
-	$q = $_GET["q"] . "%";
+
+if(isset($_GET["user_id"]) && $_GET["user_id"] != ""){
+	$user_id = $_GET["user_id"];
 }else{
 	$res = [];
 	$json = json_encode($res);
@@ -12,13 +13,10 @@ if(isset($_GET["q"]) && $_GET["q"] != ""){
 	exit();
 }
 
-$query = "SELECT *, COUNT(`book_id`) AS `number_owned` FROM
-(SELECT `books`.`book_id`, `title`, `author`, `image_filename` from `books` JOIN `owned_books` ON `books`.`book_id` = `owned_books`.`book_id` AND (`title` LIKE ? OR `author` LIKE ?))
-AS `available_books`
-GROUP BY `book_id`";
 
+$query = "SELECT * FROM `books` JOIN `owned_books` ON `books`.`book_id` = `owned_books`.`book_id` WHERE `user_id` = ?";
 $stmt = $connection->prepare($query);
-$stmt->bind_param("ss", $q, $q);
+$stmt->bind_param("d", $user_id);
 $stmt->execute();
 $res = $stmt->get_result();
 

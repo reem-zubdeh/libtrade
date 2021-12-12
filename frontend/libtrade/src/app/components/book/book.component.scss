@@ -12,8 +12,10 @@ img {
     object-fit: cover;
 }
 
-h1,h3 {
-    line-height: 0.8em;
+h1,h3,p {
+    letter-spacing: 0.12em;
+    font-family: Verdana, sans-serif;
+    line-height: 1.2em;
     margin: 10px 20px;
     color: #3d3d3d;
 }

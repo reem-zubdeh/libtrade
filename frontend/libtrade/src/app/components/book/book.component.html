@@ -2,4 +2,6 @@
   <img [src]="url">
   <h1>{{title}}</h1>
   <h3>{{author}}</h3>
+  <p *ngIf="owned && owned == 1">{{owned}} person owns this</p>
+  <p *ngIf="owned && owned > 1">{{owned}} people own this</p>
 </ion-card>

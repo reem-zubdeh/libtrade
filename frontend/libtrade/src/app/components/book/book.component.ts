@@ -11,6 +11,7 @@ export class BookComponent implements OnInit {
   url:string;
   @Input() title:string = "N/A";
   @Input() author:string = "N/A";
+  @Input() owned:number = 0;
 
   constructor() { }
 

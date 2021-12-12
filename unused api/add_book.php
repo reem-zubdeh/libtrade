@@ -130,7 +130,7 @@ if(isset($_POST["author"]) && $_POST["author"] != ""){
 	}
 
 
-$query = "INSERT INTO owned_books (book_id, user_id) VALUES (?,?)";
+$query = "INSERT INTO owned_books (book_id, user_id, available, reading) VALUES (?,?,1,0)";
 $stmt = $connection->prepare($query);
 $stmt->bind_param("dd", $book_id, $user_id);
 

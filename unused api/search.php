@@ -13,7 +13,8 @@ if(isset($_GET["q"]) && $_GET["q"] != ""){
 }
 
 $query = "SELECT *, COUNT(`book_id`) AS `number_owned` FROM
-(SELECT `books`.`book_id`, `title`, `author`, `image_filename` from `books` JOIN `owned_books` ON `books`.`book_id` = `owned_books`.`book_id` AND (`title` LIKE ? OR `author` LIKE ?))
+(SELECT `books`.`book_id`, `title`, `author`, `image_filename` from `books` JOIN `owned_books` ON `books`.`book_id` = `owned_books`.`book_id`
+WHERE `available` = 1 AND (`title` LIKE ? OR `author` LIKE ?))
 AS `available_books`
 GROUP BY `book_id`";
 
