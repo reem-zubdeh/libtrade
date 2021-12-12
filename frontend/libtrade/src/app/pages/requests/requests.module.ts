@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { RequestsPageRoutingModule } from './requests-routing.module';
 
 import { RequestsPage } from './requests.page';
-
+import { TabsComponent } from 'src/app/components/tabs/tabs.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +15,6 @@ import { RequestsPage } from './requests.page';
     IonicModule,
     RequestsPageRoutingModule
   ],
-  declarations: [RequestsPage]
+  declarations: [RequestsPage, TabsComponent]
 })
 export class RequestsPageModule {}

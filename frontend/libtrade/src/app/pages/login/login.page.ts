@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
     if (result) {
 
       localStorage.setItem('loggedIn', "true");
-      this.router.navigate(["books"]);
+      this.router.navigate(["tabs/tabs/books"]);
       //update local storage to contain user id
     } else {
       this.error = true;

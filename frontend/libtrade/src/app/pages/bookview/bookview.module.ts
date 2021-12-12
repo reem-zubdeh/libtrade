@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { BookviewPageRoutingModule } from './bookview-routing.module';
 
 import { BookviewPage } from './bookview.page';
+import { TabsComponent } from 'src/app/components/tabs/tabs.component';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { BookviewPage } from './bookview.page';
     IonicModule,
     BookviewPageRoutingModule
   ],
-  declarations: [BookviewPage]
+  declarations: [BookviewPage, TabsComponent]
 })
 export class BookviewPageModule {}

@@ -14,7 +14,7 @@ export class SignupPage implements OnInit {
   }
 
   signup() {
-    this.router.navigate(["books"]);
+    this.router.navigate(["login"]);
   }
 
 }
