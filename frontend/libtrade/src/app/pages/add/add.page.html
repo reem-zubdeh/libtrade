@@ -10,20 +10,20 @@
 <ion-content>
 
   <div class="flexcol">
-    <form>
+    <form #f="ngForm" enctype="multipart/form-data" (ngSubmit)="add(f)">
       <ion-item>
         <ion-label position="floating">Title</ion-label>
-        <ion-input name="email" placeholder="john.smith@example.com" type="email"></ion-input>
+        <ion-input ngModel name="email" placeholder="john.smith@example.com" type="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Author</ion-label>
-        <ion-input name="first-name" placeholder="John" required></ion-input>
+        <ion-input ngModel name="first-name" placeholder="John" required></ion-input>
       </ion-item>
       <ion-item lines="none" class="ion-margin-bottom" >
           <ion-label position="floating">Upload book cover <ion-icon name="image-outline"></ion-icon></ion-label>
-        <input name="image" type="file" accept="image/*">
+        <input ngModel name="image" type="file" accept="image/*" (change)="getFiles($event)">
       </ion-item>
-      <ion-button class="ion-margin-top" (click)="add()">Submit</ion-button>
+      <ion-button type="submit" class="ion-margin-top" (click)="add()">Submit</ion-button>
     </form>
   </div>
 

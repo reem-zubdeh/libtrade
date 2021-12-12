@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add',
@@ -12,8 +13,12 @@ export class AddPage implements OnInit {
   ngOnInit() {
   }
 
-  add() {
-    console.log("hi");
+  add(form: NgForm) {
+    console.log(form);
+  }
+
+  getFiles(event) {
+    console.log(event.target.files);
   }
 
 }
