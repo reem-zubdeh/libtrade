@@ -1,3 +1,7 @@
 ion-content {
     overflow: scroll;
 }
+
+ion-fab-button {
+    --background: linear-gradient(to bottom right, #529dff, #132bff);
+}

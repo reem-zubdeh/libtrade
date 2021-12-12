@@ -12,12 +12,12 @@ const routes: Routes = [
         loadChildren: () => import('../books/books.module').then(m => m.BooksPageModule)
       },
       {
-        path: 'find',
-        loadChildren: () => import('../find/find.module').then(m => m.FindPageModule)
+        path: 'books/add',
+        loadChildren: () => import('../add/add.module').then(m => m.AddPageModule)
       },
       {
-        path: 'requests',
-        loadChildren: () => import('../requests/requests.module').then(m => m.RequestsPageModule)
+        path: 'find',
+        loadChildren: () => import('../find/find.module').then(m => m.FindPageModule)
       },
       {
         path: 'profile',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   books = [
   {
@@ -45,8 +46,10 @@ export class BooksPage implements OnInit {
 
   ];
   
-  
-  ;
+  add() {
+    this.router.navigate(["tabs/tabs/books/add"]);
+  }
+
   ngOnInit() {
   }
 
