@@ -8,7 +8,6 @@ import { BooksPageRoutingModule } from './books-routing.module';
 
 import { BooksPage } from './books.page';
 
-import { TabsComponent } from 'src/app/components/tabs/tabs.component';
 import { BookComponent } from 'src/app/components/book/book.component';
 
 @NgModule({
@@ -18,6 +17,6 @@ import { BookComponent } from 'src/app/components/book/book.component';
     IonicModule,
     BooksPageRoutingModule
   ],
-  declarations: [BooksPage, BookComponent, TabsComponent]
+  declarations: [BooksPage, BookComponent]
 })
 export class BooksPageModule {}

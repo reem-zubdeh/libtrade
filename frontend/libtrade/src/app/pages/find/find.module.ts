@@ -8,7 +8,8 @@ import { FindPageRoutingModule } from './find-routing.module';
 
 import { FindPage } from './find.page';
 
-import { TabsComponent } from 'src/app/components/tabs/tabs.component';
+import { BookComponent } from 'src/app/components/book/book.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +17,6 @@ import { TabsComponent } from 'src/app/components/tabs/tabs.component';
     IonicModule,
     FindPageRoutingModule
   ],
-  declarations: [FindPage, TabsComponent]
+  declarations: [FindPage, BookComponent]
 })
 export class FindPageModule {}

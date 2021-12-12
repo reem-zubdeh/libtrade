@@ -12,4 +12,8 @@ export class AddPage implements OnInit {
   ngOnInit() {
   }
 
+  add() {
+    console.log("hi");
+  }
+
 }

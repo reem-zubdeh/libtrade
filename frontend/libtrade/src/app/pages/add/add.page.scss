@@ -1,0 +1,26 @@
+.flexcol {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+ion-item {
+    --background: transparent;
+}
+
+ion-item:last-child{
+    border: none;
+}
+
+input[type='file'] {
+    opacity: 0;
+}
+
+ion-button {
+    display: block;
+    margin: auto;
+    width: 7em;
+}
